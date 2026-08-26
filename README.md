@@ -12,3 +12,4 @@ SentinelCI automates the software build and testing lifecycle locally. It uses G
 
 ---
 *Currently in active development (Day 1 completed).*
+Day 2 git hooks implemented 
