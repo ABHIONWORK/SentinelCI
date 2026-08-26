@@ -1,0 +1,9 @@
+# Ignore compiled Java classes
+*.class
+
+# Ignore CI/CD generated logs
+logs/
+*.log
+
+# Ignore Mac system files
+.DS_Store
