@@ -1,28 +1,55 @@
-# SentinelCI
+<div align="center">
 
-SentinelCI is a lightweight, custom Continuous Integration (CI) orchestration runner implemented in Bash. It automates software build, compilation, test execution, and notification workflows locally using Git Hooks.
+# 🛡️ SentinelCI
+
+**Lightweight, Zero-Dependency Continuous Integration Orchestration Engine**
+
+*Automate builds, Java compilation, test execution, and real-time Discord status alerts locally via Git Hooks.*
+
+[![Bash](https://img.shields.io/badge/Shell-Bash_4.0+-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Java](https://img.shields.io/badge/Java-JDK_8+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
+[![Git](https://img.shields.io/badge/Git-Hooks-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
+[![Discord](https://img.shields.io/badge/Discord-Webhooks-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/)
+[![cURL](https://img.shields.io/badge/cURL-HTTP_Client-073551?style=for-the-badge&logo=curl&logoColor=white)](https://curl.se/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
+</div>
 
 ---
 
-## Technical Overview
+## 🔔 Live Triggered Notifications
+
+SentinelCI automatically detects repository commits, executes your build and test suites, and immediately broadcasts status reports straight to your Discord channels:
+
+<div align="center">
+
+![SentinelCI Discord Triggered Notification](assets/discord_notification.png)
+
+*_Real-time Discord notification alerts dispatched upon automated pipeline execution post-commit._*
+
+</div>
+
+---
+
+## 🚀 Technical Overview
 
 SentinelCI acts as a local build and integration agent that detects repository commits, compiles source files, runs automated test suites, records build outputs into centralized logs, and dispatches real-time status alerts via HTTP webhooks.
 
-### Key Capabilities
+### ✨ Key Capabilities
 
-- Event-driven pipeline execution triggered automatically by Git hooks (`post-commit`).
-- Automated compilation stage supporting Java source files via `javac`.
-- Automated testing and runtime evaluation phase via `java`.
-- Non-zero exit code validation and failure trapping at each pipeline stage.
-- Centralized build logging and error capture stored in `logs/build.log`.
-- Real-time HTTP webhook notifications sent to Discord channels.
-- Command-line interface with flag parsing (`--run`, `--help`).
+- ⚡ **Event-Driven Execution**: Triggered automatically on code commit via Git `post-commit` hooks.
+- ☕ **Automated Java Build Pipeline**: Compiles source code seamlessly using `javac`.
+- 🧪 **Automated Test Suite Runner**: Executes target applications and validates runtime behavior.
+- 🛡️ **Failure Trapping**: Captures non-zero exit codes at each stage to prevent broken deployments.
+- 📝 **Centralized Build Logging**: Full stdout and stderr captured in `logs/build.log`.
+- 💬 **Discord Webhook Alerts**: Real-time rich notifications sent for build success and failure events.
+- 🎛️ **CLI Support**: Command-line flag parsing (`--run`, `--help`) for manual execution.
 
 ---
 
-## CI/CD Pipeline Architecture
+## 🏗️ CI/CD Pipeline Architecture
 
-The following diagram illustrates the lifecycle of a build and test pipeline managed by SentinelCI upon code commit:
+The following diagram illustrates the complete lifecycle of a build and test pipeline managed by SentinelCI upon git commit:
 
 ```mermaid
 flowchart TD
@@ -58,13 +85,15 @@ flowchart TD
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```
 SentinelCI/
 ├── .git/
 │   └── hooks/
 │       └── post-commit      # Git hook script that triggers SentinelCI on commit
+├── assets/
+│   └── discord_notification.png # Live execution screenshot
 ├── target_app/
 │   ├── Main.java            # Target Java application source file
 │   └── Main.class           # Compiled Java bytecode
@@ -77,7 +106,7 @@ SentinelCI/
 
 ---
 
-## Component Details
+## 🧩 Component Details
 
 ### 1. Orchestration Engine (`runner.sh`)
 The core Bash script responsible for pipeline execution. It accepts command-line arguments and manages pipeline state:
@@ -91,38 +120,38 @@ An executable Git hook located in `.git/hooks/`. Upon successful execution of `g
 A Java application evaluated by the pipeline. The runner script compiles `Main.java` and executes `Main` with test parameters.
 
 ### 4. Logging System (`logs/build.log`)
-Captured output from standard output (stdout) and standard error (stderr) streams during compilation and execution phases.
+Captured output from standard output (`stdout`) and standard error (`stderr`) streams during compilation and execution phases.
 
 ### 5. Webhook Integration
 HTTP POST integration using `curl` to transmit JSON notifications to Discord channels upon build success or failure.
 
 ---
 
-## Prerequisites
+## 🛠️ Prerequisites
 
 Ensure the following tools are installed on your host system:
 
-- Bash 4.0+
-- Java Development Kit (JDK 8 or higher)
-- cURL (for sending webhook notifications)
-- Git
+- **Bash** 4.0+
+- **Java Development Kit** (JDK 8 or higher)
+- **cURL** (for sending webhook notifications)
+- **Git**
 
 ---
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/SentinelCI.git
    cd SentinelCI
    ```
 
-2. Make the orchestrator script executable:
+2. **Make the orchestrator script executable:**
    ```bash
    chmod +x runner.sh
    ```
 
-3. Configure the Git post-commit hook:
+3. **Configure the Git post-commit hook:**
    ```bash
    chmod +x .git/hooks/post-commit
    ```
@@ -136,7 +165,7 @@ Ensure the following tools are installed on your host system:
 
 ---
 
-## Usage
+## 💻 Usage
 
 ### Automated Execution (Git Trigger)
 
@@ -162,7 +191,7 @@ View command options:
 
 ---
 
-## Log Inspection
+## 📊 Log Inspection
 
 Build details, stack traces, and compilation outputs are saved to `logs/build.log`:
 
@@ -172,6 +201,7 @@ cat logs/build.log
 
 ---
 
-## License
+## 📜 License
 
 This project is open-source and available under the [MIT License](LICENSE).
+
